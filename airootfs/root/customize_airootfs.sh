@@ -8,10 +8,14 @@ locale-gen
 ln -sf /usr/share/zoneinfo/UTC /etc/localtime
 
 usermod -s /usr/bin/zsh root
-cp -aT /etc/skel/ /root/
 chmod 700 /root
+passwd -l root
 
-sed -i 's/#\(PermitRootLogin \).\+/\1yes/' /etc/ssh/sshd_config
+useradd -m -s /bin/bash dapper	# !! must be /bin/bash not /usr/bin/bash - can you believe this shit?
+cp -aT /etc/skel/ /home/dapper
+chmod 700 /home/dapper
+
+#sed -i 's/#\(PermitRootLogin \).\+/\1yes/' /etc/ssh/sshd_config
 sed -i "s/#Server/Server/g" /etc/pacman.d/mirrorlist
 sed -i 's/#\(Storage=\)auto/\1volatile/' /etc/systemd/journald.conf
 
