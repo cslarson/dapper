@@ -7,13 +7,12 @@ locale-gen
 
 ln -sf /usr/share/zoneinfo/UTC /etc/localtime
 
-usermod -s /usr/bin/zsh root
-chmod 700 /root
-passwd -l root
+chown root:root /
+chown root:root -R /etc /root
+# passwd -l root  # remove comment for non-debug
 
-useradd -m -s /bin/bash dapper	# !! must be /bin/bash not /usr/bin/bash - can you believe this shit?
-cp -aT /etc/skel/ /home/dapper
-chmod 700 /home/dapper
+useradd -m -s /bin/bash dapper	# !! must be /bin/bash not /usr/bin/bash
+
 
 #sed -i 's/#\(PermitRootLogin \).\+/\1yes/' /etc/ssh/sshd_config
 sed -i "s/#Server/Server/g" /etc/pacman.d/mirrorlist
@@ -25,3 +24,7 @@ sed -i 's/#\(HandleLidSwitch=\)suspend/\1ignore/' /etc/systemd/logind.conf
 
 systemctl enable pacman-init.service choose-mirror.service
 systemctl set-default multi-user.target
+systemctl enable ntpd.service
+systemctl enable ufw
+
+ufw enable

@@ -1,10 +1,13 @@
 chromium
 geth
+linux-grsec
 mist
 nano
 ntp
 openbox
-openssh
+paxd
+tint2
+ufw
 xorg
 xorg-xinit
 xorg-drivers
