@@ -14,3 +14,6 @@ if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ];
 then
   exec startx
 fi
+
+# udisksctl mount -b /dev/disk/by-label/dapper-data
+mount /media/dapper-data

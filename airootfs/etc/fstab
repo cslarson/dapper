@@ -1,0 +1,2 @@
+# <device>      <dir> <type> <options>                                                                                            <dump> <fsck>
+LABEL=dapper-data      /media/dapper-data ext4   nofail,noauto,noatime,rw,user,discard,data=ordered                                                                     0      2

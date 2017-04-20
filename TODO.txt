@@ -1,25 +1,33 @@
-Sandbox chromium
-AppArmor
-Grsec
-Openbox menu
 Artwork
 Firewall rules
 Parity
 USB partitions + mounting, root read-only?
-Encryption
 Updating
+  load from iso for multi boot usb
+  detect partition used for chain data and keys
+  if no available partition detected then prompt for location?
 Enable easy self build on any os
+Fix quiet boot causes stick on 1sec remaining
 
 Features:
 Read-only root
 No sudo
 No root login
 Only included packages that are dependencies for dapps or security
-Grsec
-AppArmor
+Grsecurity/PaX - security hardened linux kernel
+Firejail - sandbox chromium and other untrusted apps if necessary
+Privoxy - remove ads, additional level of browser security
+Optimised boot performance
 
+Why Arch?
+arch has a tool, archiso, which makes it very easy to create a custom iso. the arch community also maintain an excellent wiki which documents how to do pretty much anything.
+
+f2fs?
 
 sudo rm -rf work && sudo ./build.sh -v -N dapper.iso
 
 script downloads latest kernel which can mismatch the current os kernel causing module load issues like (kernel version directory had changed):
 [Errno 2] modprobe: FATAL: Module ip6_tables not found in directory /lib/modules/4.10.9-1-ARCH
+
+Partitioning the usb:
+if it's ext[2,3,4] permissions matter, so if dapper-data created with root:root then dapper will not have write access. try your-user:users

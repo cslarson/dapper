@@ -12,7 +12,9 @@ chown root:root -R /etc /root
 # passwd -l root  # remove comment for non-debug
 
 useradd -m -s /bin/bash dapper	# !! must be /bin/bash not /usr/bin/bash
-
+# mkdir -p /run/media/dapper
+# chown dapper:dapper /run/media/dapper
+mkdir -p /media/dapper-data
 
 #sed -i 's/#\(PermitRootLogin \).\+/\1yes/' /etc/ssh/sshd_config
 sed -i "s/#Server/Server/g" /etc/pacman.d/mirrorlist
@@ -22,9 +24,13 @@ sed -i 's/#\(HandleSuspendKey=\)suspend/\1ignore/' /etc/systemd/logind.conf
 sed -i 's/#\(HandleHibernateKey=\)hibernate/\1ignore/' /etc/systemd/logind.conf
 sed -i 's/#\(HandleLidSwitch=\)suspend/\1ignore/' /etc/systemd/logind.conf
 
-systemctl enable pacman-init.service choose-mirror.service
+# systemctl enable pacman-init.service choose-mirror.service
 systemctl set-default multi-user.target
-systemctl enable ntpd.service
-systemctl enable ufw
+systemctl enable ntpd.service privoxy.service ufw
+# systemctl disable ldconfig.service  # this doesn't seem to disable it. causes longer boot time. isn't needed for live boot usb. touch /etc/.updated /var/.updated does the trick though
 
+ufw default deny
 ufw enable
+
+setfattr -n user.pax.flags -v "emr" /usr/bin/mist   # allows mist to work with grsecurity/pax
+touch /etc/.updated /var/.updated                   # prevents ldconfig.service from running on boot (unnecessary time for live boot)
