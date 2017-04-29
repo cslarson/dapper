@@ -1,2 +1,0 @@
-tint2 &
-$TERM -hold -e geth --datadir /media/dapper-data/.ethereum &

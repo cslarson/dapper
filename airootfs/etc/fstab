@@ -1,2 +1,4 @@
 # <device>      <dir> <type> <options>                                                                                            <dump> <fsck>
-LABEL=dapper-data      /media/dapper-data ext4   nofail,noauto,noatime,rw,user,discard,data=ordered                                                                     0      2
+LABEL=dapper-data      /media/dapper-data auto   nofail,noatime,rw,users,discard                                                                   0      2
+
+# discard has some security considerations, see https://wiki.archlinux.org/index.php/Dm-crypt/Specialties#Discard.2FTRIM_support_for_solid_state_drives_.28SSD.29
