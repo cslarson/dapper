@@ -2,21 +2,20 @@
 
 set -e -u
 
-sed -i 's/#\(en_US\.UTF-8\)/\1/' /etc/locale.gen
+# sed -i 's/#\(en_US\.UTF-8\)/\1/' /etc/locale.gen
+sed -i 's/#\(en_GB\.UTF-8\)/\1/' /etc/locale.gen
 locale-gen
 
 ln -sf /usr/share/zoneinfo/UTC /etc/localtime
 
 chown root:root /
 chown root:root -R /etc /root
-# passwd -l root  # remove comment for non-debug
+passwd -l root  # remove comment for non-debug
 
-# useradd -m -s /bin/bash dapper	# !! must be /bin/bash not /usr/bin/bash
-useradd -m -G wheel -s /bin/bash dapper	# wheel is temporary to allow sudo during debug
-echo 'dapper:dapper'|chpasswd # temporary
-# mkdir -p /run/media/dapper
-# chown dapper:dapper /run/media/dapper
-# mkdir -p /media/dapper-data
+useradd -m -s /bin/bash dapper	# !! must be /bin/bash not /usr/bin/bash
+# useradd -m -G wheel -s /bin/bash dapper	# wheel is temporary to allow sudo during debug
+# echo 'dapper:dapper'|chpasswd # temporary
+
 mkdir -p /media
 
 #sed -i 's/#\(PermitRootLogin \).\+/\1yes/' /etc/ssh/sshd_config
@@ -40,5 +39,5 @@ ufw enable
 
 # connmanctl disable ethernet
 
-setfattr -n user.pax.flags -v "emr" /usr/bin/mist   # allows mist to work with grsecurity/pax
+# setfattr -n user.pax.flags -v "emr" /usr/bin/mist   # allows mist to work with grsecurity/pax
 touch /etc/.updated /var/.updated                   # prevents ldconfig.service from running on boot (unnecessary time for live boot)
