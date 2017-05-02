@@ -1,6 +1,6 @@
 # Dapper OS (alpha)
 #### A (more) secure* desktop environment for running Ethereum dapps
-Dapper uses (Archiso)[https://wiki.archlinux.org/index.php/archiso] to build a very basic Arch Linux desktop. Only the minimal packages necessary to support running Ethereum dapps are included. Dapper is intended to be run as a non-persisted live usb (see [Instructions](#instructions)).
+Dapper uses [Archiso](https://wiki.archlinux.org/index.php/archiso) to build a very basic Arch Linux desktop. Only the minimal packages necessary to support running Ethereum dapps are included. Dapper is intended to be run as a non-persisted live usb (see [Instructions](#instructions)).
 
 ## Security Features
 - ~~Hardened linux kernel (grsecurity/pax)~~
