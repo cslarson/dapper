@@ -20,6 +20,7 @@ way_cooler.programs = {
 -- These programs are only ran once util.program.spawn_programs is called.
 util.program.spawn_at_startup("way-cooler-bg", "--color " .. background)
 -- util.program.spawn_at_startup("polybar", "example")
+util.program.spawn_at_startup("~/dapper-menu/menu.sh")
 
 -- These options are applied to all windows.
 way_cooler.windows = {
