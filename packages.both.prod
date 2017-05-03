@@ -13,12 +13,5 @@ wayland
 connman
 connman-gtk
 libnewt
-termite
-
-way-cooler
-way-cooler-bg
-connman-ncurses
-
 sway
-sakura
-weston
+termite

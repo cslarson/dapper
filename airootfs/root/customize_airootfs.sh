@@ -14,7 +14,7 @@ passwd -l root  # remove comment for non-debug
 
 useradd -m -s /bin/bash dapper	# !! must be /bin/bash not /usr/bin/bash
 # useradd -m -G wheel -s /bin/bash dapper	# wheel is temporary to allow sudo during debug
-echo 'dapper:dapper'|chpasswd # temporary
+# echo 'dapper:dapper'|chpasswd # temporary
 
 mkdir -p /media/dapper-data
 

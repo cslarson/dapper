@@ -18,8 +18,8 @@ Dapper uses [Archiso](https://wiki.archlinux.org/index.php/archiso) to build a v
 ## Instructions
 1. run `./build.sh -v -N dapper` (may need `sudo`) (TODO: or use dapper-<VERSION>.iso)
     - or download the most recent
-        - using ipfs directly: `ipfs get QmTZurdwuM2gyZp74vbdUyNQtKBQu9GJ2CeSGFFE3qsBPa -o dapper-2017.05.02-x86_64.iso`
-        - using ipfs gateway: [dapper-2017.05.02-x86_64.iso](http://ipfs.io/ipfs/QmTZurdwuM2gyZp74vbdUyNQtKBQu9GJ2CeSGFFE3qsBPa)        
+        - using ipfs directly: `ipfs get QmPrRAqE7ZajGFgPqoNYa9cFH6zzgCkASWBjga3cGBudJQ -o dapper-2017.05.03-x86_64.iso`
+        - using ipfs gateway: [dapper-2017.05.03-x86_64.iso](http://ipfs.io/ipfs/QmPrRAqE7ZajGFgPqoNYa9cFH6zzgCkASWBjga3cGBudJQ)        
 1. create a bootable usb from resulting `out/dapper-<DATE>-x86_64.iso`
 1. partition another usb and label `dapper-data`.
     - this partition will store chain data and keys for the client of choice (geth or parity).
@@ -32,6 +32,8 @@ Dapper uses [Archiso](https://wiki.archlinux.org/index.php/archiso) to build a v
   - Provide feedback regarding security
   - Provide feedback regarding usability
   - Help seed the iso on ipfs
+  - Make a cool logo
+  - Improve the instructions
 
 ## \* Disclaimer
 Dapper is a tool I created for personal use. I am not a security expert. At this point Dapper has not been reviewed, audited, or received feedback from security experts and should not be relied upon until that occurs. Additionally, what was considered a principle security feature, Grsecurity/Pax, has recently become unavailable. Pending a change in that project, or implementation of a replacement, Linux kernel "hardening" is not implemented.
