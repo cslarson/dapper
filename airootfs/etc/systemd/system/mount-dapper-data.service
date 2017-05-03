@@ -1,9 +1,0 @@
-[Unit]
-Description=Mount Dapper Data
-
-[Service]
-Type=oneshot
-ExecStart=/usr/bin/udisksctl mount -b /dev/disk/by-label/dapper-data
-
-[Install]
-WantedBy=multi-user.target

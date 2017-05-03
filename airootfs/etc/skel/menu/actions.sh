@@ -11,6 +11,11 @@ function nodeUp {
   [ -S $1 ] && return 0 || return 1
 }
 
+function restart {
+  # sleep .5
+  /home/dapper/menu/menu.sh
+}
+
 function waitNode {
 
   # until nc -Uz $1

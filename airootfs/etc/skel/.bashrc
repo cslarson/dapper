@@ -10,11 +10,11 @@ PS1='[\u@\h \W]\$ '
 BROWSER=/usr/bin/chromium
 EDITOR=/usr/bin/nano
 
-# if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ];
-# then
-#   # exec startx
-#   weston-launch
-# fi
+if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ];
+then
+  # way-cooler
+  sway
+fi
 
 # udisksctl mount -b /dev/disk/by-label/dapper-data
 # mount /media/dapper-data

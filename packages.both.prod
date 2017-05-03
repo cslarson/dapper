@@ -1,4 +1,5 @@
 chromium
+f2fs-tools
 firejail
 geth
 mist
@@ -7,11 +8,17 @@ ntp
 parity
 privoxy
 ufw
-f2fs-tools
+wayland
 
 connman
-connman-ncurses
-wayland
+connman-gtk
+libnewt
+termite
+
 way-cooler
 way-cooler-bg
-termite
+connman-ncurses
+
+sway
+sakura
+weston

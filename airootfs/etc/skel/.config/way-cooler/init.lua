@@ -7,6 +7,8 @@
 -- A background can either be a 6 digit hex value or an image path
 local background = "/home/dapper/.wallpaper/Ethereum-homestead-background-33.jpg" -- 0x5E4055
 
+local terminal = "termite"
+
 -- Programs that Way Cooler can run
 way_cooler.programs = {
   -- Name of the window that will be the bar window.
@@ -18,9 +20,9 @@ way_cooler.programs = {
 
 -- Registering programs to run at startup
 -- These programs are only ran once util.program.spawn_programs is called.
-util.program.spawn_at_startup("way-cooler-bg", "--color " .. background)
+-- util.program.spawn_at_startup("way-cooler-bg", "--color " .. background)
 -- util.program.spawn_at_startup("polybar", "example")
-util.program.spawn_at_startup("~/dapper-menu/menu.sh")
+util.program.spawn_at_startup(terminal,  "--hold -e ~/menu/menu.sh")
 
 -- These options are applied to all windows.
 way_cooler.windows = {
@@ -77,7 +79,7 @@ local keys = {
   -- Open dmenu
   key({ mod }, "d", util.program.spawn_once("dmenu_run")),
   -- Open terminal
-  key({ mod }, "return", util.program.spawn_once("weston-terminal")),
+  key({ mod }, "return", util.program.spawn_once(terminal)),
 
   -- Lua methods can be bound as well
   key({ mod, "Shift" }, "h", function () print("Hello world!") end),

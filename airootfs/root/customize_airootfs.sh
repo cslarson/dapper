@@ -14,9 +14,9 @@ passwd -l root  # remove comment for non-debug
 
 useradd -m -s /bin/bash dapper	# !! must be /bin/bash not /usr/bin/bash
 # useradd -m -G wheel -s /bin/bash dapper	# wheel is temporary to allow sudo during debug
-# echo 'dapper:dapper'|chpasswd # temporary
+echo 'dapper:dapper'|chpasswd # temporary
 
-mkdir -p /media
+mkdir -p /media/dapper-data
 
 #sed -i 's/#\(PermitRootLogin \).\+/\1yes/' /etc/ssh/sshd_config
 sed -i "s/#Server/Server/g" /etc/pacman.d/mirrorlist
