@@ -2,7 +2,8 @@
 . /home/dapper/menu/actions.sh
 
 MENU=/home/dapper/menu/menu.sh
-TERMINAL=termite
+BROWSER=midori
+TERMINAL=termite #gnome-terminal
 DATA_DIR=/media/dapper-data
 GETH_DIR=$DATA_DIR/geth
 GETH_IPC=$GETH_DIR/geth.ipc
@@ -14,7 +15,7 @@ if mountpoint -q $DATA_DIR ; then
     DAPPER_DATA_ACTION=Eject
 fi
 
-sleep .5
+# sleep .5
 
 CHOICE=$(whiptail --title "Dapper Menu" --menu "Choose an action" 15 60 6 \
 "1" "Open internet settings" \
@@ -28,7 +29,7 @@ CHOICE=$(whiptail --title "Dapper Menu" --menu "Choose an action" 15 60 6 \
 
 case $CHOICE in
   1)
-    connman-gtk & restart
+    connman-gtk > /dev/null 2>&1 & restart
     # connman-gtk #& ./$0
     # $TERMINAL -e "connman-ncurses" > /dev/null #2>&1 & ./$0
   ;;
@@ -37,7 +38,7 @@ case $CHOICE in
   ;;
   3)
     if nodeUp $GETH_IPC ; then
-      $TERMINAL --hold -e "mist --rpc $GETH_IPC" & restart
+      $TERMINAL --hold -e "mist --rpc $GETH_IPC" > /dev/null 2>&1 & restart
     else
       $TERMINAL --hold -e "geth --datadir $GETH_DIR" > /dev/null 2>&1 &
       waitNode $GETH_IPC
@@ -46,11 +47,13 @@ case $CHOICE in
   ;;
   4)
     if nodeUp $PARITY_IPC ; then
-      firejail chromium --proxy-server='localhost:8118' http://127.0.0.1:8180 & restart
+      # firejail chromium --proxy-server='localhost:8118' http://127.0.0.1:8180 & restart
+      firejail midori http://127.0.0.1:8180 > /dev/null 2>&1 & restart
     else
       $TERMINAL --hold -e "parity --datadir $PARITY_DIR" > /dev/null 2>&1 &
       waitNode $PARITY_IPC
-      firejail chromium --proxy-server='localhost:8118' http://127.0.0.1:8180 > /dev/null 2>&1 & restart
+      # firejail chromium --proxy-server='localhost:8118' http://127.0.0.1:8180 > /dev/null 2>&1 & restart
+      firejail midori http://127.0.0.1:8180 > /dev/null 2>&1 & restart
     fi
   ;;
   5)

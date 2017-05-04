@@ -1,17 +1,23 @@
-chromium
 f2fs-tools
 firejail
 geth
+hicolor-icon-theme
 mist
 nano
 ntp
 parity
 privoxy
+ttf-dejavu
 ufw
-wayland
+wayland-git
 
 connman
 connman-gtk
 libnewt
-sway
+midori
+epiphany
+qupzilla
 termite
+
+weston-git
+cairo-dock

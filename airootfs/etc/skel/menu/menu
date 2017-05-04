@@ -1,0 +1,3 @@
+#!/bin/bash
+
+termite -t "Dapper Menu" -e /home/dapper/menu/menu.sh

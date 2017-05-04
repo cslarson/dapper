@@ -1,4 +1,3 @@
-chromium
 firejail
 geth
 linux-grsec
@@ -25,3 +24,31 @@ sakura
 weston
 velox
 liri-shell-git
+
+chromium  -- uses xorg compatability
+sway  -- has xorg deps
+termite
+
+
+
+f2fs-tools
+firejail
+geth
+mist
+nano
+ntp
+parity
+privoxy
+ufw
+wayland
+
+connman
+connman-gtk
+libnewt
+sway
+termite
+gnome-shell -- not working
+gnome-terminal
+midori
+
+cairo-dock
