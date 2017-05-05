@@ -1,23 +1,19 @@
 f2fs-tools
 firejail
 geth
-hicolor-icon-theme
 mist
 nano
 ntp
 parity
+paper-icon-theme-git
 privoxy
 ttf-dejavu
 ufw
-wayland-git
+wayland
 
 connman
 connman-gtk
 libnewt
-midori
 epiphany
-qupzilla
 termite
-
-weston-git
-cairo-dock
+weston
