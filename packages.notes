@@ -53,3 +53,10 @@ midori
 
 cairo-dock
 paper-icon-theme-git
+
+gtk2
+libxss
+nss
+alsa-lib
+
+epiphany -- native wayland support, but as mist needs chromium deps might as well use chromium for now anyway. chromium will be gtk3 soon anyway

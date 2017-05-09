@@ -55,17 +55,17 @@ case $CHOICE in
   4)
     if nodeUp $PARITY_IPC ; then
       # firejail chromium --proxy-server='localhost:8118' http://127.0.0.1:8180 & restart
-      firejail epiphany http://127.0.0.1:8180 > /dev/null 2>&1 & restart
+      firejail chromium http://127.0.0.1:8180 > /dev/null 2>&1 & restart
     else
       # termite --hold -e "parity --datadir $PARITY_DIR" > /dev/null 2>&1 &
       termite --hold -e "parity --datadir $PARITY_DIR --dapps-port $PARITY_DAPPS_PORT" &
       waitNode $PARITY_IPC
       # firejail chromium --proxy-server='localhost:8118' http://127.0.0.1:8180 > /dev/null 2>&1 & restart
-      firejail epiphany http://127.0.0.1:8180 > /dev/null 2>&1 & restart
+      firejail chromium http://127.0.0.1:8180 > /dev/null 2>&1 & restart
     fi
   ;;
   5)
-    firejail epiphany file:///home/dapper/mew/index.html > /dev/null 2>&1 & restart
+    firejail chromium file:///home/dapper/mew/index.html > /dev/null 2>&1 & restart
   ;;
   6)
     systemctl reboot

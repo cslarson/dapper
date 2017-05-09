@@ -3,9 +3,9 @@ f2fs-tools
 firejail
 geth
 
+epiphany
+chromium
 mist
-gtk2
-libxss
 
 nano
 ntp
@@ -19,6 +19,5 @@ wayland
 connman
 connman-gtk
 libnewt
-epiphany
 termite
 weston
