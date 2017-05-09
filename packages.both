@@ -2,8 +2,11 @@ arc-icon-theme
 f2fs-tools
 firejail
 geth
-gtk2
+
 mist
+gtk2
+libxss
+
 nano
 ntp
 parity

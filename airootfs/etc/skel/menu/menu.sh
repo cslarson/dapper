@@ -1,5 +1,8 @@
 #!/bin/bash
-. actions.sh
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+. $DIR/actions.sh
 
 DATA_DIR=/media/dapper-data
 GETH_DIR=$DATA_DIR/geth
@@ -55,7 +58,7 @@ case $CHOICE in
       firejail epiphany http://127.0.0.1:8180 > /dev/null 2>&1 & restart
     else
       # termite --hold -e "parity --datadir $PARITY_DIR" > /dev/null 2>&1 &
-      termite --hold -e "parity --datadir $PARITY_DIR --dapps-port $PARITY_DAPPS_PORT" > /dev/null 2>&1 &
+      termite --hold -e "parity --datadir $PARITY_DIR --dapps-port $PARITY_DAPPS_PORT" &
       waitNode $PARITY_IPC
       # firejail chromium --proxy-server='localhost:8118' http://127.0.0.1:8180 > /dev/null 2>&1 & restart
       firejail epiphany http://127.0.0.1:8180 > /dev/null 2>&1 & restart

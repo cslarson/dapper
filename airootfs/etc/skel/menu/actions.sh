@@ -1,3 +1,5 @@
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
 function nodeUp {
 
   # if ! nc -Uz $1 ; then
@@ -13,7 +15,7 @@ function nodeUp {
 
 function restart {
   # sleep .5
-  ./menu.sh
+  $DIR/menu.sh
 }
 
 function waitNode {

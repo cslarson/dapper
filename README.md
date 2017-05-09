@@ -1,4 +1,4 @@
-# Dapper OS (alpha)
+# Dapper OS (experimental)
 #### A (more) secure* desktop environment for running Ethereum dapps
 Dapper uses [Archiso](https://wiki.archlinux.org/index.php/archiso) to build a basic Arch Linux desktop, streamlined for running Ethereum dapps, and designed to be run from a non-persisted live usb (see [Instructions](#instructions)). The choice of packages and settings for Dapper are intended to achieve a system that is:
 
@@ -33,8 +33,8 @@ Dapper uses [Archiso](https://wiki.archlinux.org/index.php/archiso) to build a b
       1. remove the previous work directory if there is one (`sudo rm -rf work`)
       1. run the build script (`sudo ./build.sh -v -N dapper`)
     - download the most recent dapper iso:
-      - using ipfs directly: `ipfs get Qmef5Rp64yhWLJ9qs1tnRk5NMAxr7YCsDfg1VA4eSMS16B -o dapper-2017.05.09-x86_64.iso`
-      - using ipfs gateway (rename after download): [dapper-2017.05.09-x86_64.iso](http://ipfs.io/ipfs/Qmef5Rp64yhWLJ9qs1tnRk5NMAxr7YCsDfg1VA4eSMS16B)
+      - using ipfs directly: `ipfs get QmYNruXFmMTvAZtqNWPFHk4ecPPCaXypz5u3GZNsWWk89v -o dapper-2017.05.09-x86_64.iso`
+      - using ipfs gateway (rename after download): [dapper-2017.05.09-x86_64.iso](http://ipfs.io/ipfs/QmYNruXFmMTvAZtqNWPFHk4ecPPCaXypz5u3GZNsWWk89v)
 1. create a bootable usb from resulting `out/dapper-<DATE>-x86_64.iso` (or the downloaded file)
 1. partition another usb and label `dapper-data`.
     - this partition will store chain data and keys for the client of choice (geth or parity).
