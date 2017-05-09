@@ -22,8 +22,8 @@ CHOICE=$(whiptail --title "Dapper Menu" --menu "Choose an action" 15 60 7 \
 "3" "Use Mist/Parity" \
 "4" "Use Parity WebUI/Parity" \
 "5" "Use MyEtherWallet offline" \
-"6" "Shutdown" \
-"7" "Reboot"  3>&1 1>&2 2>&3)
+"6" "Reboot" \
+"7" "Shutdown"  3>&1 1>&2 2>&3)
 # exitstatus=$?
 
 case $CHOICE in
@@ -62,12 +62,12 @@ case $CHOICE in
     fi
   ;;
   5)
-    firejail epiphany ~/mew/index.html > /dev/null 2>&1 & restart
+    firejail epiphany file:///home/dapper/mew/index.html > /dev/null 2>&1 & restart
   ;;
   6)
-    systemctl poweroff
+    systemctl reboot
   ;;
   7)
-    systemctl reboot
+    systemctl poweroff
   ;;
 esac

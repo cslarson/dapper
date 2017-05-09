@@ -22,7 +22,7 @@ Dapper uses [Archiso](https://wiki.archlinux.org/index.php/archiso) to build a v
 ## Limitations
 - currently i've been unsuccessful running dapper in a Virtual Machine (though `systemd-nspawn` works great, see [Dev](#dev))
 - the currently available iso will only run on intel/amd 64bit systems
-- `gb` keyboard layout :grimacing:
+- the current iso uses the `gb` keyboard layout
 
 ## Instructions
 1. build or download the dapper iso
@@ -33,8 +33,8 @@ Dapper uses [Archiso](https://wiki.archlinux.org/index.php/archiso) to build a v
     1. remove the previous work directory if there is one (`sudo rm -rf work`)
     1. run the build script (`sudo ./build.sh -v -N dapper`)
   - download the most recent dapper iso:
-    - using ipfs directly: `ipfs get QmZAK7YHzeEAQcrk6LLRyqedHqoeNSuw3bGuRAxYguxDwU -o dapper-2017.05.09-x86_64.iso`
-    - using ipfs gateway (rename after download): [dapper-2017.05.09-x86_64.iso](http://ipfs.io/ipfs/QmZAK7YHzeEAQcrk6LLRyqedHqoeNSuw3bGuRAxYguxDwU)
+    - using ipfs directly: `ipfs get QmPnP8Mqxbv2EiNyyaVagCHVA4YDquWRkfFyHY489JwWTi -o dapper-2017.05.09-x86_64.iso`
+    - using ipfs gateway (rename after download): [dapper-2017.05.09-x86_64.iso](http://ipfs.io/ipfs/QmPnP8Mqxbv2EiNyyaVagCHVA4YDquWRkfFyHY489JwWTi)
 1. create a bootable usb from resulting `out/dapper-<DATE>-x86_64.iso` (or the downloaded file)
 1. partition another usb and label `dapper-data`.
   - this partition will store chain data and keys for the client of choice (geth or parity).
