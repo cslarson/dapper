@@ -43,8 +43,10 @@ Dapper uses [Archiso](https://wiki.archlinux.org/index.php/archiso) to build a v
 1. boot your pc from the dapper usb
   - you may need to enter your bios settings to accomplish this. usually there is screen right after turning on the pc where you are prompted to hit the "Delete" key to access the bios settings. the boot device can be selected there.
 1. click on the pink monocle icon to open the menu
-1. select a choice from the menu (TODO: screenshot)
+1. select a choice from the menu
   - remember to backup any keys you create!
+
+<img src="https://raw.githubusercontent.com/cslarson/dapper/master/screenshot-menu.png" alt="Dapper OS" width="400"/>
 
 ## Dev
 After building, it's easy to quickly test out most modifications using a chroot-like tool called `systemd-nspawn`:
