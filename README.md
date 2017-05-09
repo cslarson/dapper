@@ -22,28 +22,33 @@ Dapper uses [Archiso](https://wiki.archlinux.org/index.php/archiso) to build a v
 ## Limitations
 - currently i've been unsuccessful running dapper in a Virtual Machine (though `systemd-nspawn` works great, see [Dev](#dev))
 - the currently available iso will only run on intel/amd 64bit systems
+- `gb` keyboard layout :grimacing:
 
 ## Instructions
 1. build or download the dapper iso
   - for building on an Arch based system:
     1. install archiso (`sudo pacman -S archiso`)
     1. clone this repo (`git clone git@github.com:cslarson/dapper.git`)
-    1. run `sudo ./build.sh -v -N dapper`
+    1. work in that new directory (`cd dapper`)
+    1. remove the previous work directory if there is one (`sudo rm -rf work`)
+    1. run the build script (`sudo ./build.sh -v -N dapper`)
   - download the most recent dapper iso:
     - using ipfs directly: `ipfs get QmXTx4di9X6qn5YS7QANvV9k4fJj33PLBhmxteJ5UZvbdu -o dapper-2017.05.05-x86_64.iso`
     - using ipfs gateway (rename after download): [dapper-2017.05.05-x86_64.iso](http://ipfs.io/ipfs/QmXTx4di9X6qn5YS7QANvV9k4fJj33PLBhmxteJ5UZvbdu)
 1. create a bootable usb from resulting `out/dapper-<DATE>-x86_64.iso` (or the downloaded file)
 1. partition another usb and label `dapper-data`.
-    - this partition will store chain data and keys for the client of choice (geth or parity).
-    - labelling as `dapper-data` will ensure the partition can be identified by Dapper.
-    - for linux filesystems the partition needs to be accessible by the user `dapper` or group `users`. you may need to do something like `sudo chown -R youruser:users /media/dapper-data`.
-1. boot from the dapper usb and select a choice from the menu (TODO: screenshot)
-    - remember to backup any keys you create!
+  - this partition will store chain data and keys for the client of choice (geth or parity).
+  - labelling as `dapper-data` will ensure the partition can be identified by Dapper.
+  - for linux filesystems the partition needs to be accessible by the user `dapper` or group `users`. you may need to do something like `sudo chown -R youruser:users /media/dapper-data`.
+1. boot your pc from the dapper usb
+  - you may need to enter your bios settings to accomplish this. on my pc i need to hit the "Delete" key during bootup to access the bios settings and change the boot device.
+1. click on the pink monocle icon to open the menu
+1. select a choice from the menu (TODO: screenshot)
+  - remember to backup any keys you create!
 
 ## Dev
 After building, it's easy to quickly test out most modifications using a chroot-like tool called `systemd-nspawn`:
-1. `cd work/x86_64/airootfs`
-1. `sudo systemd-nspawn --boot`
+1. `sudo systemd-nspawn --boot -D work/x86_64/airootfs`
 1. `export DISPLAY=:0`
 1. `weston`
 
@@ -56,6 +61,7 @@ After building, it's easy to quickly test out most modifications using a chroot-
   - Get dapper to boot in a vm
   - Get dapper to work on raspberry pi/arm
   - Work out way to build/dev on non-Arch system
+  - Get the weston desktop to autorun the menu
 
 ## \* Disclaimer
 Dapper is a tool I created for personal use. I am not a security expert. At this point Dapper has not been reviewed, audited, or received feedback from security experts and should not be relied upon until that occurs. Additionally, what was considered a principle security feature, Grsecurity/Pax, has recently become unavailable. Pending a change in that project, or implementation of a replacement, Linux kernel "hardening" is not implemented.

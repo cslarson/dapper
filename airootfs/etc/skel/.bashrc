@@ -12,11 +12,12 @@ BROWSER=/usr/bin/epiphany
 EDITOR=/usr/bin/nano
 HTTP_PROXY="http://localhost:8118"
 
-# if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ];
-# then
-#   # way-cooler
-#   sway
-# fi
+if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ];
+then
+  # way-cooler
+  # sway
+  weston-launch
+fi
 
 # if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]] && [[ -z $XDG_SESSION_TYPE ]]; then
 #   XDG_SESSION_TYPE=wayland exec dbus-run-session gnome-session
