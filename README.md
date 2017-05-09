@@ -26,25 +26,25 @@ Dapper uses [Archiso](https://wiki.archlinux.org/index.php/archiso) to build a v
 
 ## Instructions
 1. build or download the dapper iso
-  - for building on an Arch based system:
-    1. install archiso (`sudo pacman -S archiso`)
-    1. clone this repo (`git clone git@github.com:cslarson/dapper.git`)
-    1. work in that new directory (`cd dapper`)
-    1. remove the previous work directory if there is one (`sudo rm -rf work`)
-    1. run the build script (`sudo ./build.sh -v -N dapper`)
-  - download the most recent dapper iso:
-    - using ipfs directly: `ipfs get QmPnP8Mqxbv2EiNyyaVagCHVA4YDquWRkfFyHY489JwWTi -o dapper-2017.05.09-x86_64.iso`
-    - using ipfs gateway (rename after download): [dapper-2017.05.09-x86_64.iso](http://ipfs.io/ipfs/QmPnP8Mqxbv2EiNyyaVagCHVA4YDquWRkfFyHY489JwWTi)
+    - for building on an Arch based system:
+      1. install archiso (`sudo pacman -S archiso`)
+      1. clone this repo (`git clone git@github.com:cslarson/dapper.git`)
+      1. work in that new directory (`cd dapper`)
+      1. remove the previous work directory if there is one (`sudo rm -rf work`)
+      1. run the build script (`sudo ./build.sh -v -N dapper`)
+    - download the most recent dapper iso:
+      - using ipfs directly: `ipfs get QmPnP8Mqxbv2EiNyyaVagCHVA4YDquWRkfFyHY489JwWTi -o dapper-2017.05.09-x86_64.iso`
+      - using ipfs gateway (rename after download): [dapper-2017.05.09-x86_64.iso](http://ipfs.io/ipfs/QmPnP8Mqxbv2EiNyyaVagCHVA4YDquWRkfFyHY489JwWTi)
 1. create a bootable usb from resulting `out/dapper-<DATE>-x86_64.iso` (or the downloaded file)
 1. partition another usb and label `dapper-data`.
-  - this partition will store chain data and keys for the client of choice (geth or parity).
-  - labelling as `dapper-data` will ensure the partition can be identified by Dapper.
-  - for linux filesystems the partition needs to be accessible by the user `dapper` or group `users`. you may need to do something like `sudo chown -R youruser:users /media/dapper-data`.
+    - this partition will store chain data and keys for the client of choice (geth or parity).
+    - labelling as `dapper-data` will ensure the partition can be identified by Dapper.
+    - for linux filesystems the partition needs to be accessible by the user `dapper` or group `users`. you may need to do something like `sudo chown -R youruser:users /media/dapper-data`.
 1. boot your pc from the dapper usb
-  - you may need to enter your bios settings to accomplish this. usually there is screen right after turning on the pc where you are prompted to hit the "Delete" key to access the bios settings. the boot device can be selected there.
+    - you may need to enter your bios settings to accomplish this. usually there is screen right after turning on the pc where you are prompted to hit the "Delete" key to access the bios settings. the boot device can be selected there.
 1. click on the pink monocle icon to open the menu
 1. select a choice from the menu
-  - remember to backup any keys you create!
+    - remember to backup any keys you create!
 
 <img src="https://raw.githubusercontent.com/cslarson/dapper/master/screenshot-menu.png" alt="Dapper OS" width="400"/>
 
@@ -55,15 +55,15 @@ After building, it's easy to quickly test out most modifications using a chroot-
 1. `weston`
 
 ## Contribute
-  - Provide feedback regarding security
-  - Provide feedback regarding usability
-  - Help seed the iso on ipfs
-  - Make a cool logo
-  - Improve the instructions
-  - Get dapper to boot in a vm
-  - Get dapper to work on raspberry pi/arm
-  - Work out way to build/dev on non-Arch systems
-  - Get the weston desktop to autorun the menu
+- Provide feedback regarding security
+- Provide feedback regarding usability
+- Help seed the iso on ipfs
+- Make a cool logo
+- Improve the instructions
+- Get dapper to boot in a vm
+- Get dapper to work on raspberry pi/arm
+- Work out way to build/dev on non-Arch systems
+- Get the weston desktop to autorun the menu
 
 ## \*Disclaimer
 Dapper is a tool I created for personal use. I am not a security expert. At this point Dapper has not been reviewed, audited, or received feedback from security experts and should not be relied upon until that occurs. Additionally, what was considered a principle security feature, Grsecurity/Pax, has recently become unavailable. Pending a change in that project, or implementation of a replacement, Linux kernel "hardening" is not implemented.
