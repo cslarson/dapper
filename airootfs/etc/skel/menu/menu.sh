@@ -1,13 +1,12 @@
 #!/bin/bash
-. /home/dapper/menu/actions.sh
+. actions.sh
 
-MENU=/home/dapper/menu/menu.sh
-TERMINAL=termite #gnome-terminal
 DATA_DIR=/media/dapper-data
 GETH_DIR=$DATA_DIR/geth
 GETH_IPC=$GETH_DIR/geth.ipc
 PARITY_DIR=$DATA_DIR/parity
 PARITY_IPC=$PARITY_DIR/jsonrpc.ipc
+PARITY_DAPPS_PORT=8090
 
 DAPPER_DATA_ACTION=Attach
 if mountpoint -q $DATA_DIR ; then
@@ -32,22 +31,22 @@ case $CHOICE in
   ;;
   2)
     if nodeUp $GETH_IPC ; then
-      $TERMINAL --hold -e "mist --rpc $GETH_IPC" > /dev/null 2>&1 & restart
+      termite --hold -e "mist --rpc $GETH_IPC" > /dev/null 2>&1 & restart
     else
-      $TERMINAL --hold -e "geth --datadir $GETH_DIR" > /dev/null 2>&1 &
+      termite --hold -e "geth --datadir $GETH_DIR" > /dev/null 2>&1 &
       waitNode $GETH_IPC
-      $TERMINAL --hold -e "mist --rpc $GETH_IPC" > /dev/null 2>&1 & restart
+      termite --hold -e "mist --rpc $GETH_IPC" > /dev/null 2>&1 & restart
     fi
   ;;
   3)
     if nodeUp $PARITY_IPC ; then
       # firejail chromium --proxy-server='localhost:8118' http://127.0.0.1:8180 & restart
-      $TERMINAL --hold -e "mist --rpc $PARITY_IPC" > /dev/null 2>&1 & restart
+      termite --hold -e "mist --rpc $PARITY_IPC" > /dev/null 2>&1 & restart
     else
-      $TERMINAL --hold -e "parity --geth --datadir $PARITY_DIR" > /dev/null 2>&1 &
+      termite --hold -e "parity --geth --datadir $PARITY_DIR --dapps-port $PARITY_DAPPS_PORT" > /dev/null 2>&1 &
       waitNode $PARITY_IPC
       # firejail chromium --proxy-server='localhost:8118' http://127.0.0.1:8180 > /dev/null 2>&1 & restart
-      $TERMINAL --hold -e "mist --rpc $PARITY_IPC" > /dev/null 2>&1 & restart
+      termite --hold -e "mist --rpc $PARITY_IPC" > /dev/null 2>&1 & restart
     fi
   ;;
   4)
@@ -55,7 +54,8 @@ case $CHOICE in
       # firejail chromium --proxy-server='localhost:8118' http://127.0.0.1:8180 & restart
       firejail epiphany http://127.0.0.1:8180 > /dev/null 2>&1 & restart
     else
-      $TERMINAL --hold -e "parity --datadir $PARITY_DIR" > /dev/null 2>&1 &
+      # termite --hold -e "parity --datadir $PARITY_DIR" > /dev/null 2>&1 &
+      termite --hold -e "parity --datadir $PARITY_DIR --dapps-port $PARITY_DAPPS_PORT" > /dev/null 2>&1 &
       waitNode $PARITY_IPC
       # firejail chromium --proxy-server='localhost:8118' http://127.0.0.1:8180 > /dev/null 2>&1 & restart
       firejail epiphany http://127.0.0.1:8180 > /dev/null 2>&1 & restart

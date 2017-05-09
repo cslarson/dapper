@@ -13,7 +13,7 @@ function nodeUp {
 
 function restart {
   # sleep .5
-  /home/dapper/menu/menu.sh
+  ./menu.sh
 }
 
 function waitNode {
@@ -26,6 +26,7 @@ function waitNode {
 
   until nodeUp $1 ; do
     sleep 1
+    echo waiting
   done
 
 }
