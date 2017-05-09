@@ -1,5 +1,3 @@
-<img src="https://raw.githubusercontent.com/cslarson/dapper/master/dapper.png" alt="Dapper OS" width="100"/>
-
 # Dapper OS (alpha)
 #### A (more) secure* desktop environment for running Ethereum dapps
 Dapper uses [Archiso](https://wiki.archlinux.org/index.php/archiso) to build a very basic Arch Linux desktop. Only the minimal packages necessary to support running Ethereum dapps are included. Dapper is intended to be run from a non-persisted live usb (see [Instructions](#instructions)).
@@ -39,3 +37,7 @@ Dapper uses [Archiso](https://wiki.archlinux.org/index.php/archiso) to build a v
 
 ## \* Disclaimer
 Dapper is a tool I created for personal use. I am not a security expert. At this point Dapper has not been reviewed, audited, or received feedback from security experts and should not be relied upon until that occurs. Additionally, what was considered a principle security feature, Grsecurity/Pax, has recently become unavailable. Pending a change in that project, or implementation of a replacement, Linux kernel "hardening" is not implemented.
+
+## Logo?
+
+<img src="https://raw.githubusercontent.com/cslarson/dapper/master/dapper.png" alt="Dapper OS" width="60"/>
