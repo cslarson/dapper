@@ -3,7 +3,7 @@
 Dapper uses [Archiso](https://wiki.archlinux.org/index.php/archiso) to build a very basic Arch Linux desktop. Only the minimal packages necessary to support running Ethereum dapps are included. Dapper is intended to be run from a non-persisted live usb (see [Instructions](#instructions)). The choice of packages and settings for Dapper have been guided by wanting to achieve a system that is:
 
 1. minimal - only install what is needed to use dapps.
-1. locked down - restrict allowed actions to minimal needed to use dapps.
+1. locked down - restrict allowed actions to minimum needed to use dapps.
 1. defended - employ software tools that improve system security
 
 ## Security Features
@@ -60,10 +60,10 @@ After building, it's easy to quickly test out most modifications using a chroot-
   - Improve the instructions
   - Get dapper to boot in a vm
   - Get dapper to work on raspberry pi/arm
-  - Work out way to build/dev on non-Arch system
+  - Work out way to build/dev on non-Arch systems
   - Get the weston desktop to autorun the menu
 
-## \* Disclaimer
+## \*Disclaimer
 Dapper is a tool I created for personal use. I am not a security expert. At this point Dapper has not been reviewed, audited, or received feedback from security experts and should not be relied upon until that occurs. Additionally, what was considered a principle security feature, Grsecurity/Pax, has recently become unavailable. Pending a change in that project, or implementation of a replacement, Linux kernel "hardening" is not implemented.
 
 ## Logo?
