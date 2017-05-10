@@ -28,7 +28,7 @@ function waitNode {
 
   until nodeUp $1 ; do
     sleep 1
-    echo waiting
+    echo "please wait..."
   done
 
 }

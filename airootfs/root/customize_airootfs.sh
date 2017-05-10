@@ -28,7 +28,7 @@ sed -i 's/#\(HandleLidSwitch=\)suspend/\1ignore/' /etc/systemd/logind.conf
 
 # systemctl enable pacman-init.service choose-mirror.service
 systemctl set-default multi-user.target
-systemctl enable ntpd privoxy ufw connman.service # spice-vdagent # mount-dapper-data
+systemctl enable ntpd privoxy ufw connman.service dnscrypt-proxy.service # spice-vdagent # mount-dapper-data
 # systemctl disable ldconfig.service  # this doesn't seem to disable it. causes longer boot time. isn't needed for live boot usb. touch /etc/.updated /var/.updated does the trick though
 
 ufw default deny

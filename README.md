@@ -1,28 +1,24 @@
 # Dapper OS (experimental)
 #### A (more) secure* desktop environment for running Ethereum dapps
-Dapper uses [Archiso](https://wiki.archlinux.org/index.php/archiso) to build a basic Arch Linux desktop, streamlined for running Ethereum dapps, and designed to be run from a non-persisted live usb (see [Instructions](#instructions)). The choice of packages and settings for Dapper are intended to achieve a system that is:
-
-1. minimal - only install what is needed to use dapps.
-1. locked down - restrict allowed actions to minimum needed to use dapps.
-1. defended - employ software tools that improve system security
+Dapper uses [Archiso](https://wiki.archlinux.org/index.php/archiso) to build a basic Arch Linux desktop, streamlined for running Ethereum dapps, and designed to be run from a non-persisted live usb (see [Instructions](#instructions)).
 
 ## Security Features
-- ~~Hardened linux kernel (grsecurity/pax)~~
-- App sandbox (firejail)
-- Firewall (ufw)
-- No browser ads (privoxy)
+- [Hardened linux kernel](https://www.archlinux.org/packages/community/x86_64/linux-hardened/) (~~grsecurity~~)
+- ~~[Mandatory Access Control (MAC)]~~ TODO [apparmor](https://wiki.archlinux.org/index.php/AppArmor), [tomoyo](https://wiki.archlinux.org/index.php/TOMOYO_Linux), [selinux](https://wiki.archlinux.org/index.php/SELinux)?
+- App sandbox ([firejail](https://wiki.archlinux.org/index.php/Firejail))
+- Firewall ([ufw](https://wiki.archlinux.org/index.php/Uncomplicated_Firewall))
+- No browser ads ([privoxy](https://wiki.archlinux.org/index.php/Privoxy))
+- Encrypted dns traffic ([dnscrypt](https://wiki.archlinux.org/index.php/DNSCrypt))
 - No admin (no sudo, no root login)
 - Minimal support packages (wayland, connman, termite, epiphany)
 - Runs from non-persisted live usb
-- Wayland instead of X.org
-  - https://www.reddit.com/r/linux/comments/3yav6t/wayland_security_or_a_tale_of_jack_and_jill/
-  - https://lwn.net/Articles/589147/
-  - https://blog.martin-graesslin.com/blog/2015/11/looking-at-the-security-of-plasmawayland/
+- Pure Wayland desktop ([More on Wayland vs X11 security](#seealso))
 
 ## Limitations
 - currently i've been unsuccessful running dapper in a Virtual Machine (though `systemd-nspawn` works great, see [Dev](#dev))
 - the currently available iso will only run on intel/amd 64bit systems
 - the current iso uses the `gb` keyboard layout
+- Chromium on Linux is not currently pure Wayland but should be once v59 is released ([very soon](https://www.chromium.org/developers/calendar)). As Mist depends on Chromium through it's use of electron, I'm waiting on that before adding Mist support to Dapper. See [here](https://github.com/electron/electron/issues/2927) for more details. At that point the browser may also switch from Epiphany to Chromium.
 
 ## Instructions
 1. build or download the dapper iso
@@ -33,18 +29,19 @@ Dapper uses [Archiso](https://wiki.archlinux.org/index.php/archiso) to build a b
       1. remove the previous work directory if there is one (`sudo rm -rf work`)
       1. run the build script (`sudo ./build.sh -v -N dapper`)
     - download the most recent dapper iso:
-      - using ipfs directly: `ipfs get QmSRgocwPSJ3f4yWgcLHMNsYdoeKiiHX69c5pv5dWhmyo4 -o dapper-2017.05.09-x86_64.iso`
-      - using ipfs gateway (rename after download): [dapper-2017.05.09-x86_64.iso](http://ipfs.io/ipfs/QmSRgocwPSJ3f4yWgcLHMNsYdoeKiiHX69c5pv5dWhmyo4)
+      - using ipfs directly: `ipfs get QmbBKQtEoaf2dKHcymBiVDoZ5bNhAtZ1eQqbZ1f8vrdZym -o dapper-2017.05.09-x86_64.iso`
+      - using ipfs gateway (rename after download): [dapper-2017.05.09-x86_64.iso](http://ipfs.io/ipfs/QmbBKQtEoaf2dKHcymBiVDoZ5bNhAtZ1eQqbZ1f8vrdZym)
 1. create a bootable usb from resulting `out/dapper-<DATE>-x86_64.iso` (or the downloaded file)
 1. partition another usb and label `dapper-data`.
     - this partition will store chain data and keys for the client of choice (geth or parity).
     - labelling as `dapper-data` will ensure the partition can be identified by Dapper.
-    - for linux filesystems the partition needs to be accessible by the user `dapper` or group `users`. you may need to do something like `sudo chown -R youruser:users /media/dapper-data`.
 1. boot your pc from the dapper usb
     - you may need to enter your bios settings to accomplish this. usually there is screen right after turning on the pc where you are prompted to hit the "Delete" key to access the bios settings. the boot device can be selected there.
 1. click on the pink monocle icon to open the menu
 1. select a choice from the menu
-    - remember to backup any keys you create!
+
+### Remember to backup any keys you create!!!!
+The `udisks2` package is included to allow mounting of additional usb drives primarily for the purpose of backing up any keys that were created. Drives will be mounted at `/run/media/dapper`.
 
 <img src="https://raw.githubusercontent.com/cslarson/dapper/master/screenshot-menu.png" alt="Dapper OS" width="400"/>
 
@@ -71,3 +68,10 @@ Dapper is a tool I created for personal use. I am not a security expert. At this
 ## Logo?
 
 <img src="https://raw.githubusercontent.com/cslarson/dapper/master/dapper.png" alt="Dapper OS" width="60"/>
+
+## See also
+- [Arch wiki page on security](https://wiki.archlinux.org/index.php/Security)
+- [Linux distributions and WebKit security](https://blogs.gnome.org/mcatanzaro/2016/02/01/on-webkit-security-updates/)
+- [Reddit discussion on Wayland security](https://www.reddit.com/r/linux/comments/3yav6t/wayland_security_or_a_tale_of_jack_and_jill/)
+- [LWN article on Wayland security](https://lwn.net/Articles/589147/)
+- [Blog post on X11 & Wayland security](https://blog.martin-graesslin.com/blog/2015/11/looking-at-the-security-of-plasmawayland/)
