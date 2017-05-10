@@ -10,7 +10,7 @@ Dapper uses [Archiso](https://wiki.archlinux.org/index.php/archiso) to build a b
 - No browser ads ([privoxy](https://wiki.archlinux.org/index.php/Privoxy))
 - Encrypted dns traffic ([dnscrypt](https://wiki.archlinux.org/index.php/DNSCrypt))
 - No admin (no sudo, no root login)
-- Minimal support packages (wayland, connman, termite, epiphany)
+- Minimal support packages (wayland, connman, termite, epiphany, [all](packages.both))
 - Runs from non-persisted live usb
 - Pure Wayland desktop ([More on Wayland vs X11 security](#seealso))
 
@@ -29,8 +29,8 @@ Dapper uses [Archiso](https://wiki.archlinux.org/index.php/archiso) to build a b
       1. remove the previous work directory if there is one (`sudo rm -rf work`)
       1. run the build script (`sudo ./build.sh -v -N dapper`)
     - download the most recent dapper iso:
-      - using ipfs directly: `ipfs get QmbBKQtEoaf2dKHcymBiVDoZ5bNhAtZ1eQqbZ1f8vrdZym -o dapper-2017.05.09-x86_64.iso`
-      - using ipfs gateway (rename after download): [dapper-2017.05.09-x86_64.iso](http://ipfs.io/ipfs/QmbBKQtEoaf2dKHcymBiVDoZ5bNhAtZ1eQqbZ1f8vrdZym)
+      - using ipfs directly: `ipfs get QmUsRyAJaHA8oxeyCHV4eVgX1y1QckX1tVbhMr1CV2kaD2 -o dapper-2017.05.09-x86_64.iso`
+      - using ipfs gateway (rename after download): [dapper-2017.05.09-x86_64.iso](http://ipfs.io/ipfs/QmUsRyAJaHA8oxeyCHV4eVgX1y1QckX1tVbhMr1CV2kaD2)
 1. create a bootable usb from resulting `out/dapper-<DATE>-x86_64.iso` (or the downloaded file)
 1. partition another usb and label `dapper-data`.
     - this partition will store chain data and keys for the client of choice (geth or parity).

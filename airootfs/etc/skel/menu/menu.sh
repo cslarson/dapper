@@ -9,7 +9,7 @@ GETH_DIR=$DATA_DIR/geth
 GETH_IPC=$GETH_DIR/geth.ipc
 PARITY_DIR=$DATA_DIR/parity
 PARITY_IPC=$PARITY_DIR/jsonrpc.ipc
-PARITY_DAPPS_PORT=8090
+#PARITY_DAPPS_PORT=8080
 
 DAPPER_DATA_ACTION=Attach
 if mountpoint -q $DATA_DIR ; then
@@ -53,7 +53,7 @@ case $CHOICE in
   #     # firejail epiphany --proxy-server='localhost:8118' http://127.0.0.1:8180 & restart
   #     termite --hold -e "mist --rpc $PARITY_IPC" > /dev/null 2>&1 & restart
   #   else
-  #     termite --hold -e "parity --geth --datadir $PARITY_DIR --dapps-port $PARITY_DAPPS_PORT" > /dev/null 2>&1 &
+  #     termite --hold -e "parity --geth --datadir $PARITY_DIR" > /dev/null 2>&1 &
   #     waitNode $PARITY_IPC
   #     # firejail epiphany --proxy-server='localhost:8118' http://127.0.0.1:8180 > /dev/null 2>&1 & restart
   #     termite --hold -e "mist --rpc $PARITY_IPC" > /dev/null 2>&1 & restart
@@ -65,14 +65,14 @@ case $CHOICE in
       firejail epiphany http://127.0.0.1:8180 > /dev/null 2>&1 & restart
     else
       # termite --hold -e "parity --datadir $PARITY_DIR" > /dev/null 2>&1 &
-      termite --hold -e "parity --datadir $PARITY_DIR --dapps-port $PARITY_DAPPS_PORT" &
+      termite --hold -e "parity --datadir $PARITY_DIR" &
       waitNode $PARITY_IPC
       # firejail epiphany --proxy-server='localhost:8118' http://127.0.0.1:8180 > /dev/null 2>&1 & restart
       firejail epiphany http://127.0.0.1:8180 > /dev/null 2>&1 & restart
     fi
   ;;
   3)
-    firejail epiphany file:///home/dapper/mew/index.html > /dev/null 2>&1 & restart
+    firejail epiphany file:///opt/MyEtherWallet/index.html > /dev/null 2>&1 & restart
   ;;
   4)
     systemctl reboot

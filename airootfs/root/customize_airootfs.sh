@@ -18,6 +18,9 @@ useradd -m -s /bin/bash dapper	# !! must be /bin/bash not /usr/bin/bash
 
 mkdir -p /media/dapper-data
 
+mkdir /opt/MyEtherWallet
+unzip /home/dapper/mew-v3.7.0.zip -d /opt/MyEtherWallet
+
 #sed -i 's/#\(PermitRootLogin \).\+/\1yes/' /etc/ssh/sshd_config
 sed -i "s/#Server/Server/g" /etc/pacman.d/mirrorlist
 sed -i 's/#\(Storage=\)auto/\1volatile/' /etc/systemd/journald.conf
