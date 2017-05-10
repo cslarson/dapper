@@ -35,6 +35,7 @@ Dapper uses [Archiso](https://wiki.archlinux.org/index.php/archiso) to build a b
 1. partition another usb and label `dapper-data`.
     - this partition will store chain data and keys for the client of choice (geth or parity).
     - labelling as `dapper-data` will ensure the partition can be identified by Dapper.
+    - for linux filesystems the partition needs to be accessible by the user dapper or group users. you may need to do something like `sudo chown -R 1000 /media/dapper-data` (1000 is the uid for the dapper user)
 1. boot your pc from the dapper usb
     - you may need to enter your bios settings to accomplish this. usually there is screen right after turning on the pc where you are prompted to hit the "Delete" key to access the bios settings. the boot device can be selected there.
 1. click on the pink monocle icon to open the menu

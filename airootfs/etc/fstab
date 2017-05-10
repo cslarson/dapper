@@ -1,4 +1,5 @@
 # <device>      <dir> <type> <options>                                                                                            <dump> <fsck>
-LABEL=dapper-data      /media/dapper-data auto   nofail,noatime,rw,users,uid=1000,noexec,nosuid,nodev,discard                                                                   0      2
+LABEL=dapper-data      /media/dapper-data auto   nofail,noatime,rw,users,noexec,nosuid,nodev,discard                                                                   0      2
 
 # discard has some security considerations, see https://wiki.archlinux.org/index.php/Dm-crypt/Specialties#Discard.2FTRIM_support_for_solid_state_drives_.28SSD.29
+# cannot force uid=1000 option with ext4
