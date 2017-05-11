@@ -29,6 +29,7 @@ Dapper uses [Archiso](https://wiki.archlinux.org/index.php/archiso) to build a b
       1. remove the previous work directory if there is one (`sudo rm -rf work`)
       1. run the build script (`sudo ./build.sh -v -N dapper`)
     - download the most recent dapper iso:
+      - **fyi** if this date is in the past then the packages may be out of date. if you're unable to build Dapper yourself or would otherwise like me to generate a new iso just create and issue and i'll be happy to do so.
       - using ipfs directly: `ipfs get QmUsRyAJaHA8oxeyCHV4eVgX1y1QckX1tVbhMr1CV2kaD2 -o dapper-2017.05.10-x86_64.iso`
       - using ipfs gateway (rename after download): [dapper-2017.05.10-x86_64.iso](http://ipfs.io/ipfs/QmUsRyAJaHA8oxeyCHV4eVgX1y1QckX1tVbhMr1CV2kaD2)
 1. create a bootable usb from resulting `out/dapper-<DATE>-x86_64.iso` (or the downloaded file)
