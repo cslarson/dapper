@@ -22,7 +22,13 @@ Dapper uses [Archiso](https://wiki.archlinux.org/index.php/archiso) to build a b
 
 ## Instructions
 1. build or download the dapper iso
-    - for building on an Arch based system:
+    - [NEW!!!] build on any system using Docker (yes, really. i know. it's amazing.):
+      1. clone this repo (`git clone git@github.com:cslarson/dapper.git`) or fork and customise (TODO - instructions on customising)
+      1. work in that new directory (`cd dapper`)
+      1. build the docker image `sudo docker build --rm -t cslarson/dapper-builder .`
+      1. build the iso `sudo docker run --rm -v /tmp:/tmp -t -i --privileged cslarson/dapper-builder:latest`
+      1. the built iso can be found at `/tmp/dapper-<DATE>-x86_64.iso` of your host (main os).
+    - build on an Arch based system:
       1. install archiso (`sudo pacman -S archiso`)
       1. clone this repo (`git clone git@github.com:cslarson/dapper.git`)
       1. work in that new directory (`cd dapper`)
