@@ -4,12 +4,13 @@
 cd /root/
 
 #Ask the user where are the archiso files
-echo "Type the repo URL where the archiso files are, followed by [ENTER]"
-echo "Example: https://github.com/nlhomme/lhoslite"
-read repository
+# echo "Type the repo URL where the archiso files are, followed by [ENTER]"
+# echo "Example: https://github.com/nlhomme/lhoslite"
+# read repository
 
 #Clone the lhos repo
-git clone $repository
+# git clone $repository
+git clone https://github.com/cslarson/dapper
 
 #Go to this new working folder
 cd $(ls|grep -Ev 'buildscript.sh')
