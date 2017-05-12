@@ -14,6 +14,8 @@ git clone $repository
 #Go to this new working folder
 cd $(ls|grep -Ev 'buildscript.sh')
 
+cat repo/mist-0.8.9-1-x86_64.pkg.tar.* > repo/mist-0.8.9-1-x86_64.pkg.tar
+
 #Run the script to build the ISO
 ./build.sh -v -N dapper
 
