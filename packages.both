@@ -17,6 +17,7 @@ ufw
 unzip
 wayland
 wpa_supplicant
+rfkill
 libnewt
 termite
 weston
