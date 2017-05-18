@@ -4,11 +4,11 @@
 # TO_RUN           : docker run --rm -v /tmp:/tmp -t -i --privileged nlhomme/archiso-builder:latest
 ##
 
-FROM finalduty/archlinux:latest
-#FROM dock0/arch
+#FROM finalduty/archlinux:latest
+FROM dock0/arch
 
 #Install git and archiso
-RUN pacman -S git archiso --noconfirm --needed
+RUN pacman -S awk git archiso --noconfirm --needed
 
 #RUN modprobe loop
 

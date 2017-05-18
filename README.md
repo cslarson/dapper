@@ -36,8 +36,8 @@ Dapper uses [Archiso](https://wiki.archlinux.org/index.php/archiso) to build a b
       1. run the build script (`sudo ./build.sh -v -N dapper`)
     - download the most recent dapper iso:
       - **fyi** if this date is in the past then the packages may be out of date. if you're unable to build Dapper yourself or would otherwise like me to generate a new iso just create and issue and i'll be happy to do so.
-      - using ipfs directly: `ipfs get QmaNMXuA8DfmbuQEweqz3zZGVMcx4yB3xAtizCU4Lev7Jr -o dapper-2017.05.18-x86_64.iso`
-      - using ipfs gateway (rename after download): [dapper-2017.05.18-x86_64.iso](http://ipfs.io/ipfs/QmaNMXuA8DfmbuQEweqz3zZGVMcx4yB3xAtizCU4Lev7Jr)
+      - using ipfs directly: `ipfs get QmWNcsFBsfhcf69955HhSbAjbtC6ArtxUWGx2bdFMGRKuS -o dapper-2017.05.18-x86_64.iso`
+      - using ipfs gateway (rename after download): [dapper-2017.05.18-x86_64.iso](http://ipfs.io/ipfs/QmWNcsFBsfhcf69955HhSbAjbtC6ArtxUWGx2bdFMGRKuS)
 1. create a bootable usb from resulting `out/dapper-<DATE>-x86_64.iso` (or the downloaded file)
 1. partition another usb and label `dapper-data`.
     - this partition will store chain data and keys for the client of choice (geth or parity).
