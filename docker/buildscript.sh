@@ -16,7 +16,7 @@ git clone https://github.com/cslarson/dapper
 cd $(ls|grep -Ev 'buildscript.sh')
 
 #Run the script to build the ISO
-./build.sh -v -N dapper
+./build.sh -v
 
 #Move the final ISO to /tmp to be accessible from the host
 mv out/*.iso /tmp

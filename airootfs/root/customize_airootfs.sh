@@ -8,6 +8,8 @@ locale-gen
 
 ln -sf /usr/share/zoneinfo/UTC /etc/localtime
 
+ln -s /usr/share/dhcpcd/hooks/10-wpa_supplicant /usr/lib/dhcpcd/dhcpcd-hooks/
+
 chown root:root /
 chown root:root -R /etc /root
 passwd -l root  # remove comment for non-debug
