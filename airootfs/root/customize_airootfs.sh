@@ -22,7 +22,7 @@ useradd -m -G rfkill -s /bin/bash dapper
 mkdir -p /media/dapper-data
 
 mkdir /opt/MyEtherWallet
-unzip /home/dapper/mew-v3.7.0.zip -d /opt/MyEtherWallet
+unzip /home/dapper/dist-v3.9.0.zip -d /opt/MyEtherWallet
 
 #sed -i 's/#\(PermitRootLogin \).\+/\1yes/' /etc/ssh/sshd_config
 sed -i "s/#Server/Server/g" /etc/pacman.d/mirrorlist

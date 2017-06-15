@@ -7,8 +7,8 @@
 
 alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
-# BROWSER=/usr/bin/chromium
-BROWSER=/usr/bin/epiphany
+BROWSER=/usr/bin/chromium
+# BROWSER=/usr/bin/epiphany
 EDITOR=/usr/bin/nano
 HTTP_PROXY="http://localhost:8118"
 
