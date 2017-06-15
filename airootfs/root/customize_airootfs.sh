@@ -14,7 +14,7 @@ chown root:root /
 chown root:root -R /etc /root
 passwd -l root  # remove comment for non-debug
 
-useradd -m -s /bin/bash dapper	# !! must be /bin/bash not /usr/bin/bash
+#useradd -m -s /bin/bash dapper	# !! must be /bin/bash not /usr/bin/bash
 useradd -m -G rfkill -s /bin/bash dapper
 # useradd -m -G wheel -s /bin/bash dapper	# wheel is temporary to allow sudo during debug
 # echo 'dapper:dapper'|chpasswd # temporary
