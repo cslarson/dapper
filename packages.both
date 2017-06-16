@@ -2,7 +2,6 @@ arc-icon-theme
 connman
 connman-gtk
 dnscrypt-proxy
-chromium
 firejail
 geth
 linux-hardened
@@ -21,3 +20,8 @@ rfkill
 libnewt
 termite
 weston
+
+epiphany
+chromium
+qupzilla
+midori

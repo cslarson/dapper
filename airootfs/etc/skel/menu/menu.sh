@@ -62,19 +62,20 @@ case $CHOICE in
   2)
     if nodeUp $PARITY_IPC ; then
       #firejail chromium --proxy-server='localhost:8118' http://127.0.0.1:8180 > /dev/null 2>&1 & restart
-      firejail chromium http://127.0.0.1:8180 > /dev/null 2>&1 & restart
-      #firejail epiphany http://127.0.0.1:8180 > /dev/null 2>&1 & restart
+      # firejail chromium http://127.0.0.1:8180 > /dev/null 2>&1 & restart
+      firejail epiphany http://127.0.0.1:8180 > /dev/null 2>&1 & restart
     else
       # termite --hold -e "parity --datadir $PARITY_DIR" > /dev/null 2>&1 &
       termite --hold -e "parity --datadir $PARITY_DIR" &
       waitNode $PARITY_IPC
       #firejail chromium --proxy-server='localhost:8118' http://127.0.0.1:8180 > /dev/null 2>&1 & restart
-      firejail chromium http://127.0.0.1:8180 > /dev/null 2>&1 & restart
-      #firejail epiphany http://127.0.0.1:8180 > /dev/null 2>&1 & restart
+      # firejail chromium http://127.0.0.1:8180 > /dev/null 2>&1 & restart
+      firejail epiphany http://127.0.0.1:8180 > /dev/null 2>&1 & restart
     fi
   ;;
   3)
-    firejail chromium file:///opt/MyEtherWallet/index.html > /dev/null 2>&1 & restart
+    #firejail chromium file:///opt/MyEtherWallet/index.html > /dev/null 2>&1 & restart
+    firejail epiphany file:///opt/MyEtherWallet/index.html > /dev/null 2>&1 & restart
   ;;
   4)
     systemctl reboot
